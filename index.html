@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Control e Instrumentación — Columna de Absorción | ESIQIE - IPN</title>
+  <meta name="description" content="Proyecto de instrumentación industrial: Sistema de control e instrumentación para una columna de absorción. ESIQIE, Instituto Politécnico Nacional. Equipo 4, Grupo 5IV81.">
+  <meta name="keywords" content="instrumentación, columna de absorción, ESIQIE, IPN, control de procesos, DTI, PFD, lazos de control">
+  <meta name="author" content="Equipo 4 - Grupo 5IV81 - ESIQIE IPN">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sistema de Control e Instrumentación — Columna de Absorción">
+  <meta property="og:description" content="Proyecto final de instrumentación industrial. Diseño completo de un sistema de control para columna de absorción con chaqueta térmica.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2363b3ed'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='16' font-weight='bold' fill='%23060610'>CA</text></svg>">
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+
+  <!-- Custom JS -->
+  <script src="script.js" defer></script>
+
+  <!-- Init Lucide after load -->
+  <script>
+    window.addEventListener('load', () => {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</head>
+<body>
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <div class="logo-icon">CA</div>
+        <span>Columna de Absorción</span>
+      </a>
+      <ul class="nav-links">
+        <button class="mobile-close" aria-label="Cerrar menú"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#overview">Proyecto</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#dti">DTI</a></li>
+        <li><a href="#lazos">Lazos</a></li>
+        <li><a href="#bloques">Bloques</a></li>
+        <li><a href="#instrumentacion">Instrumentación</a></li>
+        <li><a href="#arquitectura">Arquitectura</a></li>
+        <li><a href="#conclusiones">Conclusiones</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Abrir menú">
+        <i data-lucide="menu" style="width:24px;height:24px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient-orb orb-1"></div>
+      <div class="hero-gradient-orb orb-2"></div>
+      <div class="hero-gradient-orb orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-logos">
+        <img src="assets/images/logotipo_ipn.png" alt="IPN" title="Instituto Politécnico Nacional">
+        <img src="https://www.esiqie.ipn.mx/assets/files/esiqie/img/Inicio/logo-esiqie-blanco.png" alt="ESIQIE" title="ESIQIE" onerror="this.parentElement.removeChild(this)">
+      </div>
+
+      <div class="hero-badge">
+        <span class="dot"></span>
+        INSTRUMENTACIÓN INDUSTRIAL — PROYECTO FINAL
+      </div>
+
+      <h1 class="hero-title">
+        Sistema de Control para<br>
+        <span class="gradient-text">Columna de Absorción</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Diseño completo de instrumentación, lazos de control y puesta en operación para un sistema industrial con columna de absorción y chaqueta térmica.
+      </p>
+
+      <div class="hero-meta">
+        <span><i data-lucide="users" style="width:16px;height:16px;"></i> Equipo 4 — Grupo 5IV81</span>
+        <span><i data-lucide="school" style="width:16px;height:16px;"></i> ESIQIE — IPN</span>
+        <span><i data-lucide="calendar" style="width:16px;height:16px;"></i> Mayo 2026</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#overview" class="btn-primary">
+          <i data-lucide="arrow-down" style="width:18px;height:18px;"></i>
+          Explorar Proyecto
+        </a>
+        <a href="#dti" class="btn-secondary">
+          <i data-lucide="scan" style="width:18px;height:18px;"></i>
+          Ver DTI Interactivo
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <i data-lucide="mouse" style="width:18px;height:18px;"></i>
+      Scroll para explorar
+    </div>
+  </section>
+
+  <!-- ============ EQUIPO / AUTORES ============ -->
+  <section id="equipo" class="section">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="users" style="width:14px;height:14px;"></i> Equipo de Trabajo</span>
+        <h2 class="section-title">Integrantes del Proyecto</h2>
+        <p class="section-desc">Equipo 4, Grupo 5IV81 — Academia de Diseño e Ingeniería de Apoyo, ESIQIE.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="glass-card team-card reveal">
+          <div class="team-avatar">RG</div>
+          <div class="team-name">Rafael David Gallo Díaz</div>
+          <div class="team-role">Integrante</div>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-1">
+          <div class="team-avatar">AL</div>
+          <div class="team-name">Azalia Lopez Paz</div>
+          <div class="team-role">Integrante</div>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-2">
+          <div class="team-avatar">DM</div>
+          <div class="team-name">Dulce María Martínez Alamilla</div>
+          <div class="team-role">Integrante</div>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-3">
+          <div class="team-avatar">CP</div>
+          <div class="team-name">Carlos Alexis Pareja Hernandez</div>
+          <div class="team-role">Integrante</div>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-4">
+          <div class="team-avatar">BR</div>
+          <div class="team-name">Barbara Ramirez Paz</div>
+          <div class="team-role">Integrante</div>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-4">
+          <div class="team-avatar">KZ</div>
+          <div class="team-name">Karyme Zenderos Ramírez</div>
+          <div class="team-role">Integrante</div>
+        </div>
+
+        <!-- Profesor -->
+        <div class="glass-card professor-card reveal">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #f6ad55, #fc8181);">JR</div>
+          <div>
+            <div class="team-name">Ing. José Ignacio Rauda Rodríguez</div>
+            <div class="team-role">Profesor — Instrumentación Industrial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVERVIEW / DESCRIPCIÓN GENERAL ============ -->
+  <section id="overview" class="section" style="background: var(--bg-secondary);">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="info" style="width:14px;height:14px;"></i> Descripción General</span>
+        <h2 class="section-title">Acerca del Proyecto</h2>
+        <p class="section-desc">
+          Este proyecto presenta el diseño completo de un sistema de control e instrumentación para una columna de absorción con chaqueta térmica, incluyendo selección de instrumentos, diagramas DTI, lazos de control PID y procedimientos de calibración.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="glass-card stat-card reveal">
+          <div class="stat-number counter" data-target="4" data-suffix="">0</div>
+          <div class="stat-label">Variables de Proceso</div>
+        </div>
+        <div class="glass-card stat-card reveal reveal-delay-1">
+          <div class="stat-number counter" data-target="30" data-suffix="+">0</div>
+          <div class="stat-label">Instrumentos</div>
+        </div>
+        <div class="glass-card stat-card reveal reveal-delay-2">
+          <div class="stat-number counter" data-target="3" data-suffix="">0</div>
+          <div class="stat-label">Lazos de Control PID</div>
+        </div>
+        <div class="glass-card stat-card reveal reveal-delay-3">
+          <div class="stat-number counter" data-target="12" data-suffix="">0</div>
+          <div class="stat-label">Válvulas de Aislamiento</div>
+        </div>
+      </div>
+
+      <div class="reveal" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div class="glass-card" style="padding:1.5rem;">
+          <div style="width:40px;height:40px;border-radius:10px;background:rgba(99,179,237,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <i data-lucide="thermometer" style="width:20px;height:20px;color:var(--accent-blue);"></i>
+          </div>
+          <h4 style="font-weight:700;margin-bottom:0.4rem;">Temperatura</h4>
+          <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.6;">Control PID de temperatura a 40°C mediante chaqueta térmica con válvula TCV SAMSON y sensores PT100 Siemens.</p>
+        </div>
+        <div class="glass-card" style="padding:1.5rem;">
+          <div style="width:40px;height:40px;border-radius:10px;background:rgba(246,173,85,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <i data-lucide="gauge" style="width:20px;height:20px;color:var(--accent-orange);"></i>
+          </div>
+          <h4 style="font-weight:700;margin-bottom:0.4rem;">Presión</h4>
+          <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.6;">Regulación de presión a 2.5 bar manométrica con controlador PIC Siemens TIA Portal y válvula Fisher EZ Globe.</p>
+        </div>
+        <div class="glass-card" style="padding:1.5rem;">
+          <div style="width:40px;height:40px;border-radius:10px;background:rgba(79,209,197,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <i data-lucide="waves" style="width:20px;height:20px;color:var(--accent-cyan);"></i>
+          </div>
+          <h4 style="font-weight:700;margin-bottom:0.4rem;">Nivel</h4>
+          <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.6;">Medición de nivel con radar guiado Endress+Hauser FMP54 y control mediante bomba centrífuga Flowserve con VFD.</p>
+        </div>
+        <div class="glass-card" style="padding:1.5rem;">
+          <div style="width:40px;height:40px;border-radius:10px;background:rgba(104,211,145,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <i data-lucide="activity" style="width:20px;height:20px;color:var(--accent-green);"></i>
+          </div>
+          <h4 style="font-weight:700;margin-bottom:0.4rem;">Flujo</h4>
+          <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.6;">Medición de caudal a 80 LPM con medidores electromagnéticos Promag P 300 y vortex Prowirl F 200 para vapor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESO INDUSTRIAL ============ -->
+  <section id="proceso" class="section">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="workflow" style="width:14px;height:14px;"></i> Diagrama de Flujo de Procesos</span>
+        <h2 class="section-title">Proceso Industrial</h2>
+        <p class="section-desc">
+          El sistema opera un recipiente con chaqueta térmica, incluyendo entrada de líquido, recirculación por bomba, control de temperatura y presión, línea de alivio y salida de vapor.
+        </p>
+      </div>
+
+      <!-- PFD Image -->
+      <div class="pfd-container reveal">
+        <img src="assets/images/pfd.png" alt="Diagrama de Flujo de Procesos" loading="lazy">
+      </div>
+
+      <!-- Process Steps -->
+      <div style="margin-top: 3rem;">
+        <h3 class="reveal" style="font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;">Líneas del Proceso</h3>
+        <div class="process-timeline">
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 01</div>
+            <h3>Entrada de Líquido (Liquid Inlet)</h3>
+            <p>Alimentación principal al recipiente a 80 LPM. Incluye válvula de aislamiento Flow-Tek S19 SS316 y medidor electromagnético Promag P 300.</p>
+            <div class="step-tags"><span class="step-tag">80 LPM</span><span class="step-tag">DN 40</span><span class="step-tag">FT-12</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 02</div>
+            <h3>Salida de Líquido (Liquid Outlet)</h3>
+            <p>Descarga del producto procesado del tanque hacia la bomba de separación y control de flujo.</p>
+            <div class="step-tags"><span class="step-tag">DN 40</span><span class="step-tag">FT-13</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 03</div>
+            <h3>Salida de Vapor (Vapor Outlet)</h3>
+            <p>Línea de salida de vapor del recipiente. Medición con medidor vortex Prowirl F 200 (vapor con baja densidad).</p>
+            <div class="step-tags"><span class="step-tag">130 LPM</span><span class="step-tag">DN 25-32</span><span class="step-tag">Vortex</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 04</div>
+            <h3>Purga de Líquidos (Liquid Blowdown)</h3>
+            <p>Línea de purga para eliminación de condensados y residuos acumulados en la parte inferior del tanque.</p>
+            <div class="step-tags"><span class="step-tag">Purga</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 05</div>
+            <h3>Línea de Alivio (Relief)</h3>
+            <p>Sistema de alivio de presión con PSV-3 y transmisores PIT-6 para protección del equipo. Controlado por PIC-6.</p>
+            <div class="step-tags"><span class="step-tag">PSV-3</span><span class="step-tag">PIT-6</span><span class="step-tag">PIC-6</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 06</div>
+            <h3>Retorno de Bomba (Pump Recycle)</h3>
+            <p>Recirculación mediante bomba centrífuga Flowserve Durco Mark 3 ISO con variador de frecuencia (VFD).</p>
+            <div class="step-tags"><span class="step-tag">Flowserve</span><span class="step-tag">VFD</span><span class="step-tag">DN 25</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 07</div>
+            <h3>Entrada de Chaqueta (Jacket Inlet)</h3>
+            <p>Alimentación de fluido térmico a la chaqueta del tanque controlada por válvula TCV SAMSON Tipo 3241.</p>
+            <div class="step-tags"><span class="step-tag">TCV</span><span class="step-tag">TIC-11</span><span class="step-tag">DN 25-40</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 08</div>
+            <h3>Salida de Chaqueta (Jacket Outlet)</h3>
+            <p>Retorno del fluido térmico de la chaqueta. Incluye medición de flujo electromagnético.</p>
+            <div class="step-tags"><span class="step-tag">FT-13</span></div>
+          </div>
+          <div class="glass-card process-step reveal">
+            <div class="process-step-number">LÍNEA 09</div>
+            <h3>Alivio de Chaqueta (Jacket Relief)</h3>
+            <p>Línea de alivio de presión de la chaqueta con válvula PSV-2 y válvula de aislamiento Velan API 603.</p>
+            <div class="step-tags"><span class="step-tag">PSV-2</span><span class="step-tag">Velan API 603</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DTI INTERACTIVO ============ -->
+  <section id="dti" class="section" style="background: var(--bg-secondary);">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="scan" style="width:14px;height:14px;"></i> Diagrama de Tubería e Instrumentación</span>
+        <h2 class="section-title">DTI Interactivo</h2>
+        <p class="section-desc">
+          Explora el diagrama completo del sistema. Usa el scroll del ratón para hacer zoom, arrastra para desplazar y usa los controles para navegar.
+        </p>
+      </div>
+
+      <div class="dti-container reveal">
+        <div class="dti-controls">
+          <button class="dti-btn" id="dti-zoom-in" title="Acercar"><i data-lucide="zoom-in" style="width:18px;height:18px;"></i></button>
+          <button class="dti-btn" id="dti-zoom-out" title="Alejar"><i data-lucide="zoom-out" style="width:18px;height:18px;"></i></button>
+          <button class="dti-btn" id="dti-reset" title="Restablecer"><i data-lucide="maximize-2" style="width:18px;height:18px;"></i></button>
+        </div>
+        <div class="dti-image-wrapper">
+          <img src="assets/images/dti.png" alt="Diagrama de Tubería e Instrumentación (DTI)" draggable="false">
+        </div>
+      </div>
+
+      <!-- DTI Legend -->
+      <div style="margin-top:2rem; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1rem;" class="reveal">
+        <div class="glass-card" style="padding:1rem 1.25rem;">
+          <h4 style="font-size:0.8rem;font-weight:600;color:var(--accent-blue);margin-bottom:0.5rem;">Instrumentos de Presión</h4>
+          <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;">PI-5, PIT-6, PIC-6, PAH-6 — Manómetro, transmisores, controlador y alarma de presión alta.</p>
+        </div>
+        <div class="glass-card" style="padding:1rem 1.25rem;">
+          <h4 style="font-size:0.8rem;font-weight:600;color:var(--accent-red);margin-bottom:0.5rem;">Instrumentos de Temperatura</h4>
+          <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;">TE-4, TIT-4, TI-4, TIC-11 — Sensor PT100, transmisor, indicador y controlador de temperatura.</p>
+        </div>
+        <div class="glass-card" style="padding:1rem 1.25rem;">
+          <h4 style="font-size:0.8rem;font-weight:600;color:var(--accent-cyan);margin-bottom:0.5rem;">Instrumentos de Nivel</h4>
+          <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;">LT-2, LG-7, LI-2, LS-1, LS-9, LAH-1, LAL-9 — Radar guiado, indicador magnético, alarmas.</p>
+        </div>
+        <div class="glass-card" style="padding:1rem 1.25rem;">
+          <h4 style="font-size:0.8rem;font-weight:600;color:var(--accent-green);margin-bottom:0.5rem;">Instrumentos de Flujo</h4>
+          <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;">FT-12, FT-13, FT-14, FE — Medidores electromagnéticos (líquido) y vortex (vapor).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAZOS DE CONTROL ============ -->
+  <section id="lazos" class="section">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="git-branch" style="width:14px;height:14px;"></i> Lazos de Control Closed-Loop</span>
+        <h2 class="section-title">Lazos de Control PID</h2>
+        <p class="section-desc">
+          Tres lazos de control en lazo cerrado mantienen las variables de proceso en sus valores de set point: nivel, presión y temperatura.
+        </p>
+      </div>
+
+      <div class="loops-tabs reveal">
+        <button class="loop-tab active" data-tab="loop-nivel"><i data-lucide="waves" style="width:14px;height:14px;"></i> Control de Nivel</button>
+        <button class="loop-tab" data-tab="loop-presion"><i data-lucide="gauge" style="width:14px;height:14px;"></i> Control de Presión</button>
+        <button class="loop-tab" data-tab="loop-temperatura"><i data-lucide="thermometer" style="width:14px;height:14px;"></i> Control de Temperatura</button>
+      </div>
+
+      <!-- NIVEL -->
+      <div id="loop-nivel" class="loop-content active">
+        <div class="loop-layout">
+          <div class="loop-image-card">
+            <img src="assets/images/lazo-nivel.jpg" alt="Lazo de Control de Nivel Closed-Loop">
+          </div>
+          <div class="loop-detail">
+            <h3>Lazo de Control de Nivel</h3>
+            <div class="loop-param">
+              <div class="loop-param-icon cyan"><i data-lucide="target" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Variable Controlada</div>
+                <div class="loop-param-value">Nivel de líquido en el recipiente principal</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon blue"><i data-lucide="sliders-horizontal" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Variable Manipulada</div>
+                <div class="loop-param-value">Velocidad de la bomba centrífuga (VFD)</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon purple"><i data-lucide="cpu" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Controlador</div>
+                <div class="loop-param-value">PLC / HMI (Control de Nivel)</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon green"><i data-lucide="radio" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Sensor / Transmisor</div>
+                <div class="loop-param-value">LT-2 — Endress+Hauser Levelflex FMP54 (Radar guiado, ±2mm)</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon orange"><i data-lucide="cog" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Elemento Final de Control</div>
+                <div class="loop-param-value">Bomba Flowserve Durco Mark 3 ISO con VFD</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRESIÓN -->
+      <div id="loop-presion" class="loop-content">
+        <div class="loop-layout">
+          <div class="loop-image-card">
+            <img src="assets/images/lazo-presion.jpg" alt="Lazo de Control de Presión Closed-Loop">
+          </div>
+          <div class="loop-detail">
+            <h3>Lazo de Control de Presión</h3>
+            <div class="loop-param">
+              <div class="loop-param-icon cyan"><i data-lucide="target" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Variable Controlada</div>
+                <div class="loop-param-value">Presión acumulada en la línea / salida de vapor</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon blue"><i data-lucide="sliders-horizontal" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Variable Manipulada / Set Point</div>
+                <div class="loop-param-value">Apertura de válvula PCV — 2.5 bar manométrica</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon purple"><i data-lucide="cpu" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Controlador</div>
+                <div class="loop-param-value">PIC — Siemens TIA Portal</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon green"><i data-lucide="radio" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Sensor / Transmisor</div>
+                <div class="loop-param-value">PIT — Siemens SITRANS P DS III (4-20 mA, HART)</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon orange"><i data-lucide="cog" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Elemento Final de Control</div>
+                <div class="loop-param-value">PCV — Fisher EZ Globe Valve + Actuador neumático 657</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEMPERATURA -->
+      <div id="loop-temperatura" class="loop-content">
+        <div class="loop-layout">
+          <div class="loop-image-card">
+            <img src="assets/images/lazo-temperatura.jpg" alt="Lazo de Control de Temperatura Closed-Loop">
+          </div>
+          <div class="loop-detail">
+            <h3>Lazo de Control de Temperatura</h3>
+            <div class="loop-param">
+              <div class="loop-param-icon cyan"><i data-lucide="target" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Variable Controlada</div>
+                <div class="loop-param-value">Temperatura de la chaqueta del tanque (transferencia térmica)</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon blue"><i data-lucide="sliders-horizontal" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Variable Manipulada / Set Point</div>
+                <div class="loop-param-value">Apertura de válvula TCV — 40°C</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon purple"><i data-lucide="cpu" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Controlador</div>
+                <div class="loop-param-value">TIC — Lazo Térmico PID</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon green"><i data-lucide="radio" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Sensor / Transmisor</div>
+                <div class="loop-param-value">TE — Siemens SITRANS TS100 (PT100) + TIT — TH320 (4-20 mA)</div>
+              </div>
+            </div>
+            <div class="loop-param">
+              <div class="loop-param-icon orange"><i data-lucide="cog" style="width:18px;height:18px;"></i></div>
+              <div>
+                <div class="loop-param-label">Elemento Final de Control</div>
+                <div class="loop-param-value">TCV — SAMSON Tipo 3241 + Actuador neumático 3271</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIAGRAMA DE BLOQUES ============ -->
+  <section id="bloques" class="section" style="background: var(--bg-secondary);">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="blocks" style="width:14px;height:14px;"></i> Operación del Sistema</span>
+        <h2 class="section-title">Diagrama de Bloques</h2>
+        <p class="section-desc">
+          Secuencia operativa del sistema desde la inspección inicial hasta la operación continua en estado estable.
+        </p>
+      </div>
+
+      <div class="blocks-flow reveal">
+        <div class="glass-card block-item">
+          <div class="block-number">PASO 01</div>
+          <h4>Inspección e Inicio</h4>
+          <p>Energizar panel de control. Abrir válvulas de aislamiento.</p>
+        </div>
+        <div class="block-arrow"><i data-lucide="chevron-right" style="width:24px;height:24px;"></i></div>
+        <div class="glass-card block-item">
+          <div class="block-number">PASO 02</div>
+          <h4>Carga de Líquido</h4>
+          <p>Alimentar a 80 LPM. Monitorear LT-2 y LG-7 (Nivel).</p>
+        </div>
+        <div class="block-arrow"><i data-lucide="chevron-right" style="width:24px;height:24px;"></i></div>
+        <div class="glass-card block-item">
+          <div class="block-number">PASO 03</div>
+          <h4>Recirculación</h4>
+          <p>Arrancar bomba centrífuga. Ajustar velocidad con VFD.</p>
+        </div>
+        <div class="block-arrow"><i data-lucide="chevron-right" style="width:24px;height:24px;"></i></div>
+        <div class="glass-card block-item">
+          <div class="block-number">PASO 04</div>
+          <h4>Control de Temperatura</h4>
+          <p>Ajustar TIC a 40°C. Regular válvula TCV en chaqueta.</p>
+        </div>
+        <div class="block-arrow"><i data-lucide="chevron-right" style="width:24px;height:24px;"></i></div>
+        <div class="glass-card block-item">
+          <div class="block-number">PASO 05</div>
+          <h4>Presurización</h4>
+          <p>Fijar PIC a 2.5 bar manométrica. Regular PCV en vapor.</p>
+        </div>
+        <div class="block-arrow"><i data-lucide="chevron-right" style="width:24px;height:24px;"></i></div>
+        <div class="glass-card block-item">
+          <div class="block-number">PASO 06</div>
+          <h4>Operación Continua</h4>
+          <p>Supervisar alarmas (PAH, LAH, LAL). Estado estable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSTRUMENTACIÓN ============ -->
+  <section id="instrumentacion" class="section">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="settings-2" style="width:14px;height:14px;"></i> Instrumentación</span>
+        <h2 class="section-title">Tabla de Instrumentos</h2>
+        <p class="section-desc">
+          Catálogo completo de instrumentos seleccionados para el sistema, con especificaciones técnicas, modelos y ubicaciones.
+        </p>
+      </div>
+
+      <div class="table-controls reveal">
+        <div class="table-search-wrapper">
+          <i data-lucide="search" style="width:16px;height:16px;"></i>
+          <input type="text" id="table-search" class="table-search" placeholder="Buscar instrumento, modelo o etiqueta...">
+        </div>
+        <select id="table-filter" class="filter-select">
+          <option value="all">Todas las categorías</option>
+          <option value="pressure">Presión</option>
+          <option value="temperature">Temperatura</option>
+          <option value="level">Nivel</option>
+          <option value="flow">Flujo</option>
+          <option value="valve">Válvulas</option>
+          <option value="safety">Seguridad</option>
+        </select>
+      </div>
+
+      <div class="table-responsive reveal">
+        <table class="instruments-table">
+          <thead>
+            <tr>
+              <th>Etiqueta</th>
+              <th>Tipo</th>
+              <th>Modelo</th>
+              <th>Función</th>
+              <th>Ubicación</th>
+              <th>Señal</th>
+              <th>Cant.</th>
+            </tr>
+          </thead>
+          <tbody id="instruments-tbody">
+            <!-- PRESIÓN -->
+            <tr data-type="pressure">
+              <td><span class="tag-badge pressure">PI-5</span></td>
+              <td>Indicador de presión</td>
+              <td>WIKA 232.50</td>
+              <td>Visualización local de presión del tanque</td>
+              <td>Tanque principal</td>
+              <td>Analógica</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="pressure">
+              <td><span class="tag-badge pressure">PIT-6</span></td>
+              <td>Transmisor indicador de presión</td>
+              <td>Siemens SITRANS P DS III</td>
+              <td>Mide, transmite e indica presión</td>
+              <td>Línea de alivio</td>
+              <td>4-20 mA HART</td>
+              <td>2</td>
+            </tr>
+            <tr data-type="pressure">
+              <td><span class="tag-badge pressure">PIC-6</span></td>
+              <td>Controlador de presión</td>
+              <td>Siemens TIA Portal</td>
+              <td>Compara presión con set point y corrige</td>
+              <td>Panel de control</td>
+              <td>4-20 mA</td>
+              <td>3</td>
+            </tr>
+            <tr data-type="pressure">
+              <td><span class="tag-badge pressure">PAH-6</span></td>
+              <td>Alarma de presión alta</td>
+              <td>Siemens WinCC</td>
+              <td>Alerta por sobrepresión</td>
+              <td>Panel de alarmas</td>
+              <td>Digital</td>
+              <td>2</td>
+            </tr>
+            <!-- TEMPERATURA -->
+            <tr data-type="temperature">
+              <td><span class="tag-badge temperature">TE-4</span></td>
+              <td>Sensor de temperatura</td>
+              <td>Siemens SITRANS TS100 (PT100)</td>
+              <td>Detección primaria de temperatura</td>
+              <td>Tanque (thermowell)</td>
+              <td>Resistencia</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="temperature">
+              <td><span class="tag-badge temperature">TIT-4</span></td>
+              <td>Transmisor indicador de temp.</td>
+              <td>Siemens SITRANS TH320</td>
+              <td>Convierte señal PT100 a 4-20 mA</td>
+              <td>Entrada/salida chaqueta</td>
+              <td>4-20 mA HART</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="temperature">
+              <td><span class="tag-badge temperature">TI-4</span></td>
+              <td>Indicador de temperatura</td>
+              <td>WIKA A53 Bimetálico</td>
+              <td>Lectura local de temperatura</td>
+              <td>Tanque principal</td>
+              <td>Visual</td>
+              <td>2</td>
+            </tr>
+            <tr data-type="temperature">
+              <td><span class="tag-badge temperature">TW</span></td>
+              <td>Thermowell</td>
+              <td>WIKA TW10</td>
+              <td>Protección mecánica del sensor</td>
+              <td>Tanque principal</td>
+              <td>—</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="temperature">
+              <td><span class="tag-badge temperature">TIC-11</span></td>
+              <td>Controlador de temperatura</td>
+              <td>PLC (Lazo PID)</td>
+              <td>Control PID de temperatura</td>
+              <td>Panel de control</td>
+              <td>4-20 mA</td>
+              <td>1</td>
+            </tr>
+            <!-- NIVEL -->
+            <tr data-type="level">
+              <td><span class="tag-badge level">LT-2</span></td>
+              <td>Transmisor de nivel</td>
+              <td>E+H Levelflex FMP54</td>
+              <td>Medición continua de nivel (radar guiado)</td>
+              <td>Parte superior del tanque</td>
+              <td>4-20 mA HART</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="level">
+              <td><span class="tag-badge level">LI-2</span></td>
+              <td>Indicador de nivel</td>
+              <td>Siemens SITRANS RD100</td>
+              <td>Lectura digital del nivel</td>
+              <td>Panel local</td>
+              <td>4-20 mA</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="level">
+              <td><span class="tag-badge level">LG-7</span></td>
+              <td>Indicador visual de nivel</td>
+              <td>Kobold BNA Magnético</td>
+              <td>Visualización directa sin energía</td>
+              <td>Costado del tanque</td>
+              <td>Visual</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="level">
+              <td><span class="tag-badge level">LS-1</span></td>
+              <td>Interruptor de nivel alto</td>
+              <td>VEGA VEGASWING 63</td>
+              <td>Detección de nivel alto crítico</td>
+              <td>Nivel alto del tanque</td>
+              <td>Relé ON/OFF</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="level">
+              <td><span class="tag-badge level">LS-9</span></td>
+              <td>Interruptor de nivel bajo</td>
+              <td>VEGA VEGASWING 63</td>
+              <td>Detección de nivel bajo crítico</td>
+              <td>Nivel bajo del tanque</td>
+              <td>Relé ON/OFF</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="level">
+              <td><span class="tag-badge level">LAH-1</span></td>
+              <td>Alarma de nivel alto</td>
+              <td>Patlite LR6</td>
+              <td>Alerta de sobrellenado</td>
+              <td>Panel de control</td>
+              <td>Visual + Sonora</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="level">
+              <td><span class="tag-badge level">LAL-9</span></td>
+              <td>Alarma de nivel bajo</td>
+              <td>Patlite LR6</td>
+              <td>Alerta de vaciado excesivo</td>
+              <td>Panel de control</td>
+              <td>Visual + Sonora</td>
+              <td>1</td>
+            </tr>
+            <!-- FLUJO -->
+            <tr data-type="flow">
+              <td><span class="tag-badge flow">FT-12</span></td>
+              <td>Medidor electromagnético</td>
+              <td>E+H Promag P 300</td>
+              <td>Medición de flujo en líneas de líquido</td>
+              <td>Liquid Inlet</td>
+              <td>4-20 mA HART</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="flow">
+              <td><span class="tag-badge flow">FT-13</span></td>
+              <td>Medidor vortex</td>
+              <td>E+H Prowirl F 200</td>
+              <td>Medición de flujo de vapor</td>
+              <td>Vapor Outlet</td>
+              <td>4-20 mA HART</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="flow">
+              <td><span class="tag-badge flow">FT-14</span></td>
+              <td>Medidor electromagnético</td>
+              <td>E+H Promag P 300</td>
+              <td>Medición de flujo en chaqueta</td>
+              <td>Jacket Inlet</td>
+              <td>4-20 mA HART</td>
+              <td>1</td>
+            </tr>
+            <!-- VÁLVULAS DE CONTROL -->
+            <tr data-type="valve">
+              <td><span class="tag-badge valve">PCV</span></td>
+              <td>Válvula de control de presión</td>
+              <td>Fisher EZ Globe + Act. 657</td>
+              <td>Control de presión de vapor en chaqueta</td>
+              <td>Línea de vapor</td>
+              <td>4-20 mA</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="valve">
+              <td><span class="tag-badge valve">TCV</span></td>
+              <td>Válvula de control de temp.</td>
+              <td>SAMSON 3241 + Act. 3271</td>
+              <td>Regulación de fluido térmico</td>
+              <td>Entrada de chaqueta</td>
+              <td>4-20 mA</td>
+              <td>1</td>
+            </tr>
+            <!-- SEGURIDAD -->
+            <tr data-type="safety">
+              <td><span class="tag-badge safety">PSV-1</span></td>
+              <td>Válvula de alivio</td>
+              <td>API 520 — Resorte</td>
+              <td>Alivio de sobrepresión del tanque</td>
+              <td>Tanque</td>
+              <td>Mecánica</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="safety">
+              <td><span class="tag-badge safety">PSV-2</span></td>
+              <td>Válvula de alivio</td>
+              <td>API 520 — Resorte</td>
+              <td>Alivio de sobrepresión de chaqueta</td>
+              <td>Chaqueta</td>
+              <td>Mecánica</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="safety">
+              <td><span class="tag-badge safety">PSV-3</span></td>
+              <td>Válvula de alivio</td>
+              <td>API 520 — Resorte</td>
+              <td>Alivio en línea de alivio</td>
+              <td>Línea de alivio</td>
+              <td>Mecánica</td>
+              <td>1</td>
+            </tr>
+            <tr data-type="safety">
+              <td><span class="tag-badge safety">FSH-8</span></td>
+              <td>Interruptor de flujo alto</td>
+              <td>—</td>
+              <td>Detección de flujo alto</td>
+              <td>Línea de vapor</td>
+              <td>Digital</td>
+              <td>1</td>
+            </tr>
+            <!-- BOMBA -->
+            <tr data-type="valve">
+              <td><span class="tag-badge valve">Bomba</span></td>
+              <td>Bomba centrífuga + VFD</td>
+              <td>Flowserve Durco Mark 3 ISO</td>
+              <td>Recirculación de líquido</td>
+              <td>Línea Pump Recycle</td>
+              <td>VFD</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARQUITECTURA DEL SISTEMA ============ -->
+  <section id="arquitectura" class="section" style="background: var(--bg-secondary);">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="network" style="width:14px;height:14px;"></i> Arquitectura</span>
+        <h2 class="section-title">Arquitectura del Sistema</h2>
+        <p class="section-desc">
+          Interacción entre sensores, controladores, actuadores y el proceso. Señalización 4-20 mA HART desde campo hasta el sistema de control.
+        </p>
+      </div>
+
+      <div class="arch-diagram reveal">
+        <!-- Sensores -->
+        <div class="glass-card arch-node">
+          <div class="arch-node-icon sensor">
+            <i data-lucide="radio" style="width:28px;height:28px;"></i>
+          </div>
+          <h4>Sensores</h4>
+          <p>Elementos primarios de medición en campo</p>
+          <ul class="arch-node-list">
+            <li>PT100 (TE-4) — Temperatura</li>
+            <li>Radar guiado (LT-2) — Nivel</li>
+            <li>Manómetro (PI-5) — Presión</li>
+            <li>Electromagnético (FT) — Flujo</li>
+            <li>Vortex (FT-13) — Flujo vapor</li>
+            <li>Vibratorio (LS-1/9) — Nivel switch</li>
+          </ul>
+        </div>
+
+        <!-- Transmisores/Controladores -->
+        <div class="glass-card arch-node">
+          <div class="arch-node-icon controller">
+            <i data-lucide="cpu" style="width:28px;height:28px;"></i>
+          </div>
+          <h4>Controladores</h4>
+          <p>Procesamiento de señales y lógica PID</p>
+          <ul class="arch-node-list">
+            <li>PIC — Control de presión</li>
+            <li>TIC — Control de temperatura</li>
+            <li>PLC / HMI — Control de nivel</li>
+            <li>WinCC — Supervisión SCADA</li>
+            <li>TIA Portal — Programación</li>
+          </ul>
+        </div>
+
+        <!-- Actuadores -->
+        <div class="glass-card arch-node">
+          <div class="arch-node-icon actuator">
+            <i data-lucide="cog" style="width:28px;height:28px;"></i>
+          </div>
+          <h4>Actuadores</h4>
+          <p>Elementos finales de control</p>
+          <ul class="arch-node-list">
+            <li>PCV — Fisher EZ Globe (presión)</li>
+            <li>TCV — SAMSON 3241 (temperatura)</li>
+            <li>VFD — Bomba Flowserve (nivel)</li>
+            <li>PSV — Válvulas de alivio (seguridad)</li>
+            <li>Patlite LR6 — Alarmas</li>
+          </ul>
+        </div>
+
+        <!-- Proceso -->
+        <div class="glass-card arch-node">
+          <div class="arch-node-icon process">
+            <i data-lucide="container" style="width:28px;height:28px;"></i>
+          </div>
+          <h4>Proceso</h4>
+          <p>Equipo principal y condiciones de operación</p>
+          <ul class="arch-node-list">
+            <li>Recipiente con chaqueta térmica</li>
+            <li>Presión: 2.5 bar manométrica</li>
+            <li>Temperatura: 40°C</li>
+            <li>Caudal: 80 LPM (líquido)</li>
+            <li>Mezcla agua/solventes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Signal Flow -->
+      <div class="arch-flow-arrows reveal" style="margin-top:2rem;">
+        <div class="glass-card" style="padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; justify-content:center; width:100%;">
+          <span style="font-size:0.8rem;font-weight:600;color:var(--accent-cyan);">Flujo de señal:</span>
+          <span style="font-size:0.8rem;color:var(--text-secondary);">Proceso</span>
+          <i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent-cyan);"></i>
+          <span style="font-size:0.8rem;color:var(--text-secondary);">Sensor (Campo)</span>
+          <i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent-cyan);"></i>
+          <span style="font-size:0.8rem;color:var(--text-secondary);">4-20 mA HART</span>
+          <i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent-cyan);"></i>
+          <span style="font-size:0.8rem;color:var(--text-secondary);">PLC / PID</span>
+          <i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent-cyan);"></i>
+          <span style="font-size:0.8rem;color:var(--text-secondary);">Actuador</span>
+          <i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent-cyan);"></i>
+          <span style="font-size:0.8rem;color:var(--text-secondary);">Proceso</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BIBLIOGRAFÍA ============ -->
+  <section id="bibliografia" class="section">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="book-open" style="width:14px;height:14px;"></i> Referencias</span>
+        <h2 class="section-title">Bibliografía</h2>
+        <p class="section-desc">Normas, estándares y documentación técnica consultada para el diseño del sistema.</p>
+      </div>
+
+      <div class="bib-list reveal">
+        <div class="glass-card bib-item">
+          <span class="bib-number">[1]</span>
+          <span class="bib-text"><strong>ISA-5.1</strong> — Instrumentation Symbols and Identification. International Society of Automation.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[2]</span>
+          <span class="bib-text"><strong>API 520 / 521</strong> — Sizing, Selection, and Installation of Pressure-Relieving Devices. American Petroleum Institute.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[3]</span>
+          <span class="bib-text"><strong>ASME B31.3</strong> — Process Piping. American Society of Mechanical Engineers.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[4]</span>
+          <span class="bib-text"><strong>IEC 60751</strong> — Industrial Platinum Resistance Thermometers and Platinum Temperature Sensors.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[5]</span>
+          <span class="bib-text"><strong>IEC 60534</strong> — Industrial-Process Control Valves.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[6]</span>
+          <span class="bib-text"><strong>ASME PTC 19.3</strong> — Thermowells — Performance Test Codes.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[7]</span>
+          <span class="bib-text"><strong>API 610</strong> — Centrifugal Pumps for Petroleum, Petrochemical and Natural Gas Industries.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[8]</span>
+          <span class="bib-text"><strong>API 682</strong> — Pumps — Shaft Sealing Systems for Centrifugal and Rotary Pumps.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[9]</span>
+          <span class="bib-text"><strong>ISO 10816</strong> — Mechanical Vibration — Evaluation of Machine Vibration. International Organization for Standardization.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[10]</span>
+          <span class="bib-text"><strong>IEC 61511</strong> — Functional Safety — Safety Instrumented Systems for the Process Industry Sector.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[11]</span>
+          <span class="bib-text"><strong>ANSI/FCI 70-2</strong> — Control Valve Seat Leakage. Fluid Controls Institute.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[12]</span>
+          <span class="bib-text"><strong>Siemens AG</strong> — SITRANS P DS III, SITRANS TH320, SITRANS TS100, SITRANS RD100. Documentación técnica de producto.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[13]</span>
+          <span class="bib-text"><strong>Endress+Hauser</strong> — Levelflex FMP54, Promag P 300, Prowirl F 200. Hojas de datos técnicas.</span>
+        </div>
+        <div class="glass-card bib-item">
+          <span class="bib-number">[14]</span>
+          <span class="bib-text"><strong>Flowserve</strong> — Durco Mark 3 ISO Centrifugal Pump. Catálogo técnico.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCLUSIONES ============ -->
+  <section id="conclusiones" class="section" style="background: var(--bg-secondary);">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Conclusiones</span>
+        <h2 class="section-title">Conclusiones del Proyecto</h2>
+      </div>
+
+      <div class="conclusions-grid reveal">
+        <div class="glass-card conclusion-card">
+          <div class="conclusion-icon" style="background:rgba(99,179,237,0.15);">
+            <i data-lucide="layout-grid" style="width:20px;height:20px;color:var(--accent-blue);"></i>
+          </div>
+          <h4>Diseño Integral</h4>
+          <p>Se logró el diseño completo del sistema de instrumentación para la columna de absorción, integrando las cuatro variables críticas de proceso: presión, temperatura, nivel y flujo en un esquema de control cohesivo.</p>
+        </div>
+        <div class="glass-card conclusion-card">
+          <div class="conclusion-icon" style="background:rgba(79,209,197,0.15);">
+            <i data-lucide="shield-check" style="width:20px;height:20px;color:var(--accent-cyan);"></i>
+          </div>
+          <h4>Selección Fundamentada</h4>
+          <p>Cada instrumento fue seleccionado con base en criterios técnicos específicos: compatibilidad con el proceso, precisión requerida, condiciones ambientales (ATEX), normas industriales (ISA, API, ASME, IEC) y facilidad de mantenimiento.</p>
+        </div>
+        <div class="glass-card conclusion-card">
+          <div class="conclusion-icon" style="background:rgba(183,148,244,0.15);">
+            <i data-lucide="git-branch" style="width:20px;height:20px;color:var(--accent-purple);"></i>
+          </div>
+          <h4>Lazos de Control PID</h4>
+          <p>Los tres lazos de control en lazo cerrado (nivel, presión y temperatura) permiten la operación autónoma y estable del sistema, con retroalimentación continua mediante transmisores 4-20 mA HART.</p>
+        </div>
+        <div class="glass-card conclusion-card">
+          <div class="conclusion-icon" style="background:rgba(246,173,85,0.15);">
+            <i data-lucide="wrench" style="width:20px;height:20px;color:var(--accent-orange);"></i>
+          </div>
+          <h4>Procedimientos Completos</h4>
+          <p>Se documentaron procedimientos detallados de instalación típica, puesta en operación (commissioning), calibración de cada instrumento y criterios de aceptación según normas industriales.</p>
+        </div>
+        <div class="glass-card conclusion-card">
+          <div class="conclusion-icon" style="background:rgba(252,129,129,0.15);">
+            <i data-lucide="alert-triangle" style="width:20px;height:20px;color:var(--accent-red);"></i>
+          </div>
+          <h4>Seguridad del Proceso</h4>
+          <p>El sistema incluye múltiples capas de seguridad: válvulas de alivio PSV (API 520), alarmas de nivel y presión (LAH, LAL, PAH), interruptores de nivel (LS) con acciones ON/OFF inmediatas, y acción de falla segura (FC) en válvulas de control.</p>
+        </div>
+        <div class="glass-card conclusion-card">
+          <div class="conclusion-icon" style="background:rgba(104,211,145,0.15);">
+            <i data-lucide="bar-chart-3" style="width:20px;height:20px;color:var(--accent-green);"></i>
+          </div>
+          <h4>Escalabilidad Industrial</h4>
+          <p>El diseño sigue estándares industriales reconocidos (ISA-5.1, API, ASME, IEC) que permiten su escalamiento a instalaciones reales con integración a sistemas DCS/SCADA mediante protocolos HART.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="hero-logos" style="margin-bottom:1.5rem;opacity:0.5;">
+        <img src="assets/images/logotipo_ipn.png" alt="IPN" style="height:40px;">
+      </div>
+      <p style="font-weight:600;color:var(--text-primary);font-size:0.95rem;">Sistema de Control e Instrumentación para Columna de Absorción</p>
+      <p>ESIQIE — Instituto Politécnico Nacional | Grupo 5IV81, Equipo 4</p>
+      <p>Instrumentación Industrial — Ing. José Ignacio Rauda Rodríguez</p>
+      <p style="margin-top:0.5rem;">Mayo 2026</p>
+      <div class="footer-links">
+        <a href="#hero">Inicio</a>
+        <a href="#overview">Proyecto</a>
+        <a href="#dti">DTI</a>
+        <a href="#lazos">Lazos</a>
+        <a href="#instrumentacion">Instrumentación</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

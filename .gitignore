@@ -1,0 +1,10 @@
+# Claude Code internals
+.claude/
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# PDF del proyecto (peso excesivo para GitHub Pages)
+PROYECTO INSTRUMENTACION FINAL (1).pdf
